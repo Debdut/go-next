@@ -13,4 +13,12 @@ make build-next
 
 # build the executable
 make build-go
+
+# run the binary
+bin/go-next
 ```
+
+## Notes
+
+- Change binary name in the `Makefile`
+- Change app name in `package.json` and `package-lock.json`

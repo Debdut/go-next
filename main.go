@@ -40,5 +40,5 @@ func main() {
 }
 
 func handleAPI(w http.ResponseWriter, _ *http.Request) {
-	w.Write([]byte("Hello, from api!"))
+	fmt.Fprintf(w, "Hello, from api!")
 }

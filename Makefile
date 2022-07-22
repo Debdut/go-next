@@ -1,3 +1,6 @@
+BINARY=go-next
+BINARY_DIR=bin
+BINARY_PATH=$BINARY_DIR/$BINARY
 
 # Get the currently used golang install path (in GOPATH/bin, unless GOBIN is set)
 ifeq (,$(shell go env GOBIN))
@@ -38,7 +41,7 @@ build-next:
 	$(MAKE) -C next
 
 build-go: fmt vet lint tidy
-	go build -o bin/simpdf main.go
+	go build -o bin/$(BINARY_PATH) main.go
 
 build: build-next build-go
 
@@ -46,6 +49,5 @@ run: fmt vet  ## Run a controller from your host.
 	go run main.go
 
 clean:  ## delete the bin folder containing binaries
-	rm -rf $(PROJECT_DIR)/bin
+	rm -rf $(PROJECT_DIR)/$(BINARY_DIR)
 	$(MAKE) clean -C next
-
