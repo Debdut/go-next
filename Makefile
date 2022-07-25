@@ -1,6 +1,6 @@
 BINARY=go-next
 BINARY_DIR=bin
-BINARY_PATH=$BINARY_DIR/$BINARY
+BINARY_PATH=$(BINARY_DIR)/$(BINARY)
 
 # Get the currently used golang install path (in GOPATH/bin, unless GOBIN is set)
 ifeq (,$(shell go env GOBIN))
@@ -41,7 +41,7 @@ build-next:
 	$(MAKE) -C next
 
 build-go: fmt vet lint tidy
-	go build -o bin/$(BINARY_PATH) main.go
+	go build -o $(BINARY_PATH) main.go
 
 build: build-next build-go
 
